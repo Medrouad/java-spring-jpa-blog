@@ -19,6 +19,8 @@ public class Post {
     private String author;
     @Temporal(TemporalType.DATE)
     private Date date;
+    @ManyToOne
+    private Category category;
 
     public Post() {
         super();
@@ -81,6 +83,12 @@ public class Post {
     public String getDateStr() {
         DateFormat outputFormatter = new SimpleDateFormat("MM/dd/yyyy");
         return outputFormatter.format(this.date);
+    }
+
+    public Category getCategory() { return category;}
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public void setDate(Date date) {
